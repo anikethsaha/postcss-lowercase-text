@@ -1,6 +1,7 @@
 import * as postcss from 'postcss';
 import { transformer as unitTransformer } from './units';
 import { transformer as selectorTransformer } from './selector';
+import atRulesTranformerMap from './atRules';
 
 export default postcss.plugin('postcss-lowercase-props-selectors', () => {
   return (css) => {
@@ -19,6 +20,13 @@ export default postcss.plugin('postcss-lowercase-props-selectors', () => {
         node.value = unitTransformer(node.value);
         return node;
       });
+    });
+    css.walkAtRules((rule) => {
+      const allowedTransformingTypes = Object.keys(atRulesTranformerMap);
+      const allowedTransformingTypeSet = new Set(allowedTransformingTypes);
+      if (allowedTransformingTypeSet.has(rule.name.toLowerCase())) {
+        atRulesTranformerMap[rule.name.toLowerCase()](rule);
+      }
     });
   };
 });
