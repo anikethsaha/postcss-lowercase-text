@@ -127,23 +127,3 @@ describe('transforming CSS units', () => {
     'p.low { pitch: 105hz; }'
   );
 });
-
-describe('transforming @rules', () => {
-  run(
-    'should safely transform the @media and its properties',
-    '@MEDIA screen and (min-width: 480px){body{COLOR: lightgreen;}}',
-    '@media screen and (min-width: 480px){body{color: lightgreen;}}'
-  );
-
-  run(
-    'should safely transform the @namespace',
-    '@NAMESPACE prefix url(http://www.w3.org/1999/xhtml);',
-    '@namespace prefix url(http://www.w3.org/1999/xhtml);'
-  );
-
-  run(
-    'should safely transform the @media but not the params',
-    '@MEDIA SCREEN and (min-width: 480px){}',
-    '@media SCREEN and (min-width: 480px){}'
-  );
-});
