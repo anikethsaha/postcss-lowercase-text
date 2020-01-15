@@ -17,7 +17,7 @@ export default postcss.plugin('postcss-lowercase-props-selectors', () => {
 
       // Handling value's units
       rule.nodes = rule.nodes.map((node) => {
-        node.value = unitTransformer(node.value);
+        node.value = node.value && unitTransformer(node.value);
         return node;
       });
     });

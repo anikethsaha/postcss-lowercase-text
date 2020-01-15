@@ -126,4 +126,9 @@ describe('transforming CSS units', () => {
     'p.low { pitch: 105HZ; }',
     'p.low { pitch: 105hz; }'
   );
+    run(
+      'should safely transform comments and units ',
+      'p.low { pitch: /* some huge comment */05HZ; }',
+      'p.low { pitch: /* some huge comment */05hz; }'
+    );
 });
