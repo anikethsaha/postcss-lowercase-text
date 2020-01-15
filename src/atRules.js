@@ -27,7 +27,7 @@ const nameParamsPropsTransform = (rule) => {
 };
 
 module.exports = {
-  keyframes: nameParamsPropsTransform,
+  keyframes: nameAndPropsTransform,
   'counter-style': nameParamsPropsTransform,
   namespace: nameTransformOnly,
   import: nameTransformOnly,

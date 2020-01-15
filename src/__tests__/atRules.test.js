@@ -89,7 +89,7 @@ describe('transforming @font-face', () => {
 describe('transforming @keyframes', () => {
   run(
     'should safely transform the @keyframes',
-    '@KEYFRAMES SLIDEIN {from {transform: translateX(0%);}};@KEYFRAMES important2  {FROM {TRANSFORM: translateX(0%);}}',
+    '@KEYFRAMES slidein {from {transform: translateX(0%);}};@KEYFRAMES important2  {FROM {TRANSFORM: translateX(0%);}}',
     '@keyframes slidein {from {transform: translateX(0%);}};@keyframes important2  {from {transform: translateX(0%);}}'
   );
 });
