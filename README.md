@@ -112,6 +112,66 @@ img{
 }
 ```
 
+### AtRules
+
+- Input
+
+```css
+@MEDIA screen and (min-width: 480px){
+    body{
+      COLOR: lightgreen;
+    }
+}
+@CHARSET "iso-8859-15";
+
+@IMPORT url("fineprint.css") print;
+
+@NAMESPACE prefix url(http://www.w3.org/1999/xhtml);
+
+@SUPPORTS (display: grid) {
+	div {
+		display: grid;
+	}
+}
+```
+
+- Output
+
+```css
+@media screen and (min-width: 480px){
+    body{
+      COLOR: lightgreen;
+    }
+}
+@charset "iso-8859-15";
+
+@import url("fineprint.css") print;
+
+@namespace prefix url(http://www.w3.org/1999/xhtml);
+
+@supports (display: grid) {
+	div {
+		display: grid;
+	}
+}
+```
+
+**Rules supported**
+
+- [x] **@keyframes** Transform `name` , `params`, and `props` to lowercase
+- [x] **@counter-style** Transform `name` , `params`, and `props` to lowercase
+- [x] **@namespace** Transform `name` lowercase,
+- [x] **@import** Transform `name`to lowercase,
+- [x] **@font-face** Transform `name` and `props` to lowercase,
+- [x] **@page** Transform `name` and `props` to lowercase
+- [x] **@supports** Transform `name` and `props` to lowercase
+- [x] **@media** Transform `name` and `props` to lowercase
+- [x] **@charset** Transform `name` to lowercase,
+- [x] **@document** Transform `name` to lowercase,
+- [x] **@viewport** Transform `name` and `props` to lowercase,
+
+
+
 ## Explanation
 
 All CSS style sheets are case-insensitive, except for parts that are not under the control of CSS. Like `id` and `class` are case sensitive so this plugin wont transform these things.
